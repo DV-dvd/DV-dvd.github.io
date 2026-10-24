@@ -262,7 +262,7 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
           <li><span class="en">Develop and iterate credit-risk &amp; anti-fraud models for consumer lending.</span><span class="zh">开发并迭代消费信贷的风控与反欺诈模型。</span></li>
           <li><span class="en">Derive risk features from credit-bureau (PBoC) data for scoring models.</span><span class="zh">基于人行征信数据做风控特征衍生，服务评分模型。</span></li>
           <li><span class="en">Led / contributed to LLM-based automated feature derivation: model KS 0.3529 → 0.4333 (~+22.8%), 300+ derived features.</span><span class="zh">主导 / 参与大模型自动化特征衍生：模型 KS 0.3529 → 0.4333（约 +22.8%），300+ 衍生特征。</span></li>
-          <li><span class="en">Architected a multi-agent anti-fraud strategy system on Claude Code — 3 orchestrated sub-agents driving 8 tools — that autonomously runs the full loop (data prep → feature selection → rule generation → evaluation), cutting a strategy-iteration cycle from ~20 person-days to ~2 with end-to-end automated feature selection.</span><span class="zh">设计并落地基于 Claude Code 的多智能体反欺诈策略系统：3 个可编排子 Agent 协同调用 8 个工具，自主完成「数据准备 → 特征筛选 → 策略生成 → 评估」全闭环，单次策略迭代周期从约 20 人日压缩到 2 人日，特征筛选全流程自动化。</span></li>
+          <li><span class="en">Architected a multi-agent anti-fraud strategy system — 3 orchestrated sub-agents driving 8 tools — that autonomously runs the full loop (data prep → feature selection → rule generation → evaluation), cutting a strategy-iteration cycle from ~20 person-days to ~2 with end-to-end automated feature selection.</span><span class="zh">设计并落地多智能体反欺诈策略系统：3 个可编排子 Agent 协同调用 8 个工具，自主完成「数据准备 → 特征筛选 → 策略生成 → 评估」全闭环，单次策略迭代周期从约 20 人日压缩到 2 人日，特征筛选全流程自动化。</span></li>
           <li><span class="en">Two invention patents filed (in the company's name) on AI-driven risk methods.</span><span class="zh">两篇 AI 风控方法发明专利（以公司名义提交）。</span></li>
         </ul></div></div>
         <div class="tags"><span>Credit Risk</span><span><span class="en">Anti-fraud</span><span class="zh">反欺诈</span></span><span>LLM</span><span>Agent</span><span>XGBoost</span><span>Python</span></div>
@@ -336,19 +336,19 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
         <div class="c-foot"><span></span><span class="hint"><span class="en">hover / tap for details</span><span class="zh">悬停 / 点击查看详情</span></span></div>
       </article>
 
-      <!-- 06 Consumer-credit XGBoost model (Qifu) -->
+      <!-- 06 Risk modeling agent -->
       <article class="card rv" data-cat="risk ai">
         <div class="c-top"><span class="c-idx">06 · <span class="en">AI-driven modeling</span><span class="zh">AI 建模</span></span><span class="c-type ai">Agent × XGBoost</span></div>
-        <h3><span class="en">AI-Driven Automated Risk Modeling</span><span class="zh">AI 驱动的自动化风控建模</span></h3>
-        <div class="c-role"><span class="en">A Claude Code / Codex modeling agent, applied to a real consumer-credit model</span><span class="zh">自建 Claude Code / Codex 建模 Agent，落地到真实消费信贷模型</span></div>
-        <p class="c-sum"><span class="en">Built an agent that runs the whole modeling pipeline — a hybrid mode where Python does the computation and the LLM reasons about the decisions, with human checkpoints.</span><span class="zh">自建一个跑完整建模流程的 Agent：混合模式——Python 负责计算、大模型负责推理决策，关键环节人工确认。</span></p>
+        <h3><span class="en">Autonomous Risk-Modeling Agent</span><span class="zh">自研风控建模智能体</span></h3>
+        <div class="c-role"><span class="en">A self-built modeling agent, proven on a real consumer-credit model</span><span class="zh">自研建模智能体，已落地到真实消费信贷模型</span></div>
+        <p class="c-sum"><span class="en">Designed an agent that owns the full credit-model lifecycle — a human-in-the-loop system that cleanly separates deterministic computation from LLM reasoning, so the agent decides while every number stays reproducible.</span><span class="zh">设计一个掌管信贷模型全生命周期的智能体：人在环中的架构，把确定性计算与大模型推理彻底解耦——智能体负责决策，每个数字依然可复现。</span></p>
         <div class="details"><div><ul>
-          <li><span class="en">8-stage pipeline (sample analysis → split → feature selection → training → export → acceptance) with 3 human checkpoints.</span><span class="zh">八阶段流水线（样本分析 → 切分 → 特征筛选 → 训练 → 导出 → 验收），含 3 个人工检查点。</span></li>
-          <li><span class="en">LLM reasons over monthly stats to pick Train/Val/OOT splits and tuning strategy; 4 strategies incl. time-decay weights, rolling-ensemble and Focal Loss.</span><span class="zh">大模型基于月度统计推理切分与调参策略；四种方案含时间衰减权重、滚动窗口集成、Focal Loss。</span></li>
-          <li><span class="en">Auto export to PKL + PMML with score calibration (300–850); acceptance gates: KS ≥ 0.30 on Trn/Val/OOT, |Trn−OOT KS| ≤ 0.05, monthly PSI ≤ 0.2.</span><span class="zh">自动导出 PKL + PMML，分数校准(300–850)；验收门槛：Trn/Val/OOT KS ≥ 0.30、|Trn−OOT KS| ≤ 0.05、逐月 PSI ≤ 0.2。</span></li>
-          <li><span class="en">Result on a real consumer-lending model: Train AUC 0.746 / KS 0.369, OOT AUC 0.705 / KS 0.336 (stable out-of-time).</span><span class="zh">落地到真实消费信贷模型：训练集 AUC 0.746 / KS 0.369，OOT 集 AUC 0.705 / KS 0.336（跨时间稳定）。</span></li>
+          <li><span class="en">Orchestrates an 8-stage pipeline (sample analysis → split → feature selection → training → export → acceptance) gated by 3 human checkpoints.</span><span class="zh">编排八阶段流水线（样本分析 → 切分 → 特征筛选 → 训练 → 导出 → 验收），由 3 个人工检查点把关。</span></li>
+          <li><span class="en">The agent reasons over monthly statistics to choose Train/Val/OOT splits and the tuning strategy, selecting among 4 regimes (time-decay weighting, rolling-window ensembling, Focal Loss and standard).</span><span class="zh">智能体基于月度统计自主推理 Train/Val/OOT 切分与调参策略，在四种方案间择优（时间衰减加权、滚动窗口集成、Focal Loss、标准等权）。</span></li>
+          <li><span class="en">Dual PKL + PMML export with score calibration (300–850); release is gated on KS ≥ 0.30 across Trn/Val/OOT, |Trn−OOT KS| ≤ 0.05 and monthly PSI ≤ 0.2.</span><span class="zh">PKL + PMML 双格式导出与分数校准(300–850)；上线门槛：Trn/Val/OOT KS ≥ 0.30、|Trn−OOT KS| ≤ 0.05、逐月 PSI ≤ 0.2。</span></li>
+          <li><span class="en">Delivered a real consumer-lending model: Train AUC 0.746 / KS 0.369, OOT AUC 0.705 / KS 0.336 (stable out-of-time).</span><span class="zh">产出真实消费信贷模型：训练集 AUC 0.746 / KS 0.369，OOT 集 AUC 0.705 / KS 0.336（跨时间稳定）。</span></li>
         </ul></div></div>
-        <div class="tags"><span>Claude Code</span><span>Agent</span><span>LLM</span><span>XGBoost</span><span>PMML</span><span>KS / AUC</span></div>
+        <div class="tags"><span>Agent</span><span>Multi-Agent</span><span>LLM</span><span>XGBoost</span><span>PMML</span><span>KS / AUC</span></div>
         <div class="c-foot"><span></span><span class="hint"><span class="en">hover / tap for details</span><span class="zh">悬停 / 点击查看详情</span></span></div>
       </article>
 
@@ -356,14 +356,14 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
       <article class="card rv" data-cat="risk ai">
         <div class="c-top"><span class="c-idx">07 · <span class="en">Open source + Agent Skill</span><span class="zh">开源 + Agent Skill</span></span><span class="c-type ai">Agent × Python</span></div>
         <h3><span class="en">Automated Feature Selection Framework</span><span class="zh">特征自动化筛选框架</span></h3>
-        <div class="c-role">Automated_feature · <span class="en">+ a Claude Code / Codex Skill</span><span class="zh">+ Claude Code / Codex Skill</span></div>
+        <div class="c-role">Automated_feature · <span class="en">+ an Agent Skill</span><span class="zh">+ Agent Skill</span></div>
         <p class="c-sum"><span class="en">Turns risk-modeling know-how into a reusable pipeline that finds variables that are both predictive and stable — and wraps it as an AI-agent skill.</span><span class="zh">把风控建模经验工程化：自动筛出效果好且稳定的变量，并封装成可被 AI Agent 调用的技能。</span></p>
         <div class="details"><div><ul>
           <li><span class="en">Cleans data by model type (ML / scorecard) and variable module, then selects on IV, PSI, feature importance, correlation and monotonicity (WOE for scorecards).</span><span class="zh">按模型类型（机器学习 / 评分卡）与变量模块清洗，再按 IV / PSI / 特征重要性 / 相关性 / 单调性筛选（评分卡看 WOE）。</span></li>
           <li><span class="en">Splits step by step: overall → TRN vs OOT → month by month.</span><span class="zh">逐层拆分：整体 → TRN vs OOT → 按月。</span></li>
-          <li><span class="en">Also packaged as a Claude Code / Codex Skill: a six-step selection flow an agent runs interactively — confirming data source, splits and thresholds — on top of a shared risk-utils toolkit.</span><span class="zh">同时封装成 Claude Code / Codex Skill：六步筛选法，由 Agent 交互执行（确认数据源、切分、阈值），底层共用 risk_utils 工具库。</span></li>
+          <li><span class="en">Also packaged as an Agent Skill: a six-step selection flow an agent runs interactively — confirming data source, splits and thresholds — on top of a shared risk-utils toolkit.</span><span class="zh">同时封装成 Agent Skill：六步筛选法，由 Agent 交互执行（确认数据源、切分、阈值），底层共用 risk_utils 工具库。</span></li>
         </ul></div></div>
-        <div class="tags"><span>Claude Code Skill</span><span>Agent</span><span>IV / PSI / WOE</span><span>toad</span><span>Python</span></div>
+        <div class="tags"><span>Agent Skill</span><span>Agent</span><span>IV / PSI / WOE</span><span>toad</span><span>Python</span></div>
         <div class="c-foot"><a class="gh" href="https://github.com/DV-dvd/Automated_feature" target="_blank" rel="noopener">↗ DV-dvd/Automated_feature</a><span class="hint"><span class="en">hover / tap for details</span><span class="zh">悬停 / 点击查看详情</span></span></div>
       </article>
 
@@ -387,7 +387,7 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
       </div>
       <div class="sk rv">
         <h4><span class="ic">⌘</span><span class="en">Engineering</span><span class="zh">工程</span></h4>
-        <div class="pills"><span>Python</span><span>FastAPI</span><span>Git</span><span>SQL</span><span>Claude Code</span><span>Codex</span></div>
+        <div class="pills"><span>Python</span><span>FastAPI</span><span>Git</span><span>SQL</span><span><span class="en">Agent Frameworks</span><span class="zh">Agent 框架</span></span></div>
       </div>
     </div>
   </div>
