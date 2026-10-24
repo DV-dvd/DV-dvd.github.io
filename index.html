@@ -336,32 +336,33 @@ footer .fl{display:flex;gap:20px;flex-wrap:wrap}
       </article>
 
       <!-- 06 Consumer-credit XGBoost model (Qifu) -->
-      <article class="card rv" data-cat="risk">
-        <div class="c-top"><span class="c-idx">06 · <span class="en">Production modeling</span><span class="zh">建模项目</span></span><span class="c-type oss">XGBoost</span></div>
-        <h3><span class="en">Consumer-Credit Risk Model (XGBoost)</span><span class="zh">消费信贷风控模型（XGBoost）</span></h3>
-        <div class="c-role"><span class="en">End-to-end scorecard on real lending data</span><span class="zh">基于真实信贷数据的端到端建模</span></div>
-        <p class="c-sum"><span class="en">The full modeling workflow on real consumer-lending data: from EDA to XGBoost training, tuning and out-of-time validation.</span><span class="zh">真实消费信贷数据上的完整建模流程：从数据探索到 XGBoost 训练、调优与跨时间（OOT）验证。</span></p>
+      <article class="card rv" data-cat="risk ai">
+        <div class="c-top"><span class="c-idx">06 · <span class="en">AI-driven modeling</span><span class="zh">AI 建模</span></span><span class="c-type ai">Agent × XGBoost</span></div>
+        <h3><span class="en">AI-Driven Automated Risk Modeling</span><span class="zh">AI 驱动的自动化风控建模</span></h3>
+        <div class="c-role"><span class="en">A Claude Code / Codex modeling agent, applied to a real consumer-credit model</span><span class="zh">自建 Claude Code / Codex 建模 Agent，落地到真实消费信贷模型</span></div>
+        <p class="c-sum"><span class="en">Built an agent that runs the whole modeling pipeline — a hybrid mode where Python does the computation and the LLM reasons about the decisions, with human checkpoints.</span><span class="zh">自建一个跑完整建模流程的 Agent：混合模式——Python 负责计算、大模型负责推理决策，关键环节人工确认。</span></p>
         <div class="details"><div><ul>
-          <li><span class="en">EDA, cleaning and feature engineering on real lending data.</span><span class="zh">基于真实信贷数据做探索分析、清洗与特征工程。</span></li>
-          <li><span class="en">XGBoost training, hyperparameter tuning and evaluation.</span><span class="zh">XGBoost 训练、超参调优与评估。</span></li>
-          <li><span class="en">Results: Train AUC 0.746 / KS 0.369, OOT AUC 0.705 / KS 0.336 (stable out-of-time).</span><span class="zh">效果：训练集 AUC 0.746 / KS 0.369，OOT 集 AUC 0.705 / KS 0.336（跨时间稳定）。</span></li>
+          <li><span class="en">8-stage pipeline (sample analysis → split → feature selection → training → export → acceptance) with 3 human checkpoints.</span><span class="zh">八阶段流水线（样本分析 → 切分 → 特征筛选 → 训练 → 导出 → 验收），含 3 个人工检查点。</span></li>
+          <li><span class="en">LLM reasons over monthly stats to pick Train/Val/OOT splits and tuning strategy; 4 strategies incl. time-decay weights, rolling-ensemble and Focal Loss.</span><span class="zh">大模型基于月度统计推理切分与调参策略；四种方案含时间衰减权重、滚动窗口集成、Focal Loss。</span></li>
+          <li><span class="en">Auto export to PKL + PMML with score calibration (300–850); acceptance gates: KS ≥ 0.30 on Trn/Val/OOT, |Trn−OOT KS| ≤ 0.05, monthly PSI ≤ 0.2.</span><span class="zh">自动导出 PKL + PMML，分数校准(300–850)；验收门槛：Trn/Val/OOT KS ≥ 0.30、|Trn−OOT KS| ≤ 0.05、逐月 PSI ≤ 0.2。</span></li>
+          <li><span class="en">Result on a real consumer-lending model: Train AUC 0.746 / KS 0.369, OOT AUC 0.705 / KS 0.336 (stable out-of-time).</span><span class="zh">落地到真实消费信贷模型：训练集 AUC 0.746 / KS 0.369，OOT 集 AUC 0.705 / KS 0.336（跨时间稳定）。</span></li>
         </ul></div></div>
-        <div class="tags"><span>XGBoost</span><span>Scorecard</span><span>KS / AUC</span><span>Feature Engineering</span><span>Python</span></div>
+        <div class="tags"><span>Claude Code</span><span>Agent</span><span>LLM</span><span>XGBoost</span><span>PMML</span><span>KS / AUC</span></div>
         <div class="c-foot"><span></span><span class="hint"><span class="en">hover / tap for details</span><span class="zh">悬停 / 点击查看详情</span></span></div>
       </article>
 
       <!-- 07 Automated feature -->
-      <article class="card rv" data-cat="risk">
-        <div class="c-top"><span class="c-idx">07 · <span class="en">Open source</span><span class="zh">开源项目</span></span><span class="c-type oss">Python</span></div>
+      <article class="card rv" data-cat="risk ai">
+        <div class="c-top"><span class="c-idx">07 · <span class="en">Open source + Agent Skill</span><span class="zh">开源 + Agent Skill</span></span><span class="c-type ai">Agent × Python</span></div>
         <h3><span class="en">Automated Feature Selection Framework</span><span class="zh">特征自动化筛选框架</span></h3>
-        <div class="c-role">Automated_feature</div>
-        <p class="c-sum"><span class="en">Turns risk-modeling know-how into a reusable pipeline that finds variables that are both predictive and stable.</span><span class="zh">把风控建模经验工程化：自动筛出效果好且稳定的变量。</span></p>
+        <div class="c-role">Automated_feature · <span class="en">+ a Claude Code / Codex Skill</span><span class="zh">+ Claude Code / Codex Skill</span></div>
+        <p class="c-sum"><span class="en">Turns risk-modeling know-how into a reusable pipeline that finds variables that are both predictive and stable — and wraps it as an AI-agent skill.</span><span class="zh">把风控建模经验工程化：自动筛出效果好且稳定的变量，并封装成可被 AI Agent 调用的技能。</span></p>
         <div class="details"><div><ul>
-          <li><span class="en">Cleans data automatically by model type (ML / scorecard) and variable module, with per-module missing-value thresholds.</span><span class="zh">根据模型类型（机器学习 / 评分卡）和变量模块自动清洗数据，可个性化设置缺失值阈值。</span></li>
+          <li><span class="en">Cleans data by model type (ML / scorecard) and variable module, then selects on IV, PSI, feature importance, correlation and monotonicity (WOE for scorecards).</span><span class="zh">按模型类型（机器学习 / 评分卡）与变量模块清洗，再按 IV / PSI / 特征重要性 / 相关性 / 单调性筛选（评分卡看 WOE）。</span></li>
           <li><span class="en">Splits step by step: overall → TRN vs OOT → month by month.</span><span class="zh">逐层拆分：整体 → TRN vs OOT → 按月。</span></li>
-          <li><span class="en">Selects on IV, PSI, feature importance, correlation and monotonicity; scorecards also check WOE.</span><span class="zh">按 IV / PSI / 特征重要性 / 相关性 / 单调性筛选；评分卡模型额外看 WOE。</span></li>
+          <li><span class="en">Also packaged as a Claude Code / Codex Skill: a six-step selection flow an agent runs interactively — confirming data source, splits and thresholds — on top of a shared risk-utils toolkit.</span><span class="zh">同时封装成 Claude Code / Codex Skill：六步筛选法，由 Agent 交互执行（确认数据源、切分、阈值），底层共用 risk_utils 工具库。</span></li>
         </ul></div></div>
-        <div class="tags"><span>IV</span><span>PSI</span><span>WOE</span><span>toad</span><span>pandas</span></div>
+        <div class="tags"><span>Claude Code Skill</span><span>Agent</span><span>IV / PSI / WOE</span><span>toad</span><span>Python</span></div>
         <div class="c-foot"><a class="gh" href="https://github.com/DV-dvd/Automated_feature" target="_blank" rel="noopener">↗ DV-dvd/Automated_feature</a><span class="hint"><span class="en">hover / tap for details</span><span class="zh">悬停 / 点击查看详情</span></span></div>
       </article>
 
